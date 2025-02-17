@@ -1,0 +1,15 @@
+<%= form_with model: @question do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title, presence: true, minlength: 5, placeholder: "Title"%>
+  </div>
+
+  <div>
+    <%= f.label :body %>
+    <%= f.textarea :body, presence: true, minlength: 5, placeholder: "Content"%>
+  </div>
+
+  <div>
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
