@@ -1,5 +1,15 @@
-<h1>Show
+<h1 class="mb-4">Question Details</h1>
 
-  <p><%= @question.title %></p>
-  <%= link_to "Edit", edit_question_path(@question) %>
-<%= link_to "Delete", question_path(@question), data: {method: :delete} %>
+<div class="card mb-4">
+  <div class="card-body">
+    <h5 class="card-title"><%= @question.title %></h5>
+    <p class="card-text"><%= @question.body %></p>
+    <div class="d-flex">
+      <%= link_to "<i class='bi bi-pencil'></i> Edit".html_safe, edit_question_path(@question), class: "btn btn-warning me-2" %>
+      <%= link_to "<i class='bi bi-trash'></i> Delete".html_safe, question_path(@question), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
+
+<%= link_to "<i class='bi bi-arrow-left'></i> Back to Questions".html_safe, questions_path, class: "btn btn-primary" %>
+</div>
