@@ -1,0 +1,14 @@
+
+<%= render 'shared/errors', item: @answer %>
+
+<%= form_with model: [@question, @answer], local: true do |f| %>
+
+  <div class="mb-3">
+    <%= f.label :body, class: "form-label" %>
+    <%= f.text_area :body, class: "form-control", placeholder: "Answer" %>
+  </div>
+
+  <div>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  </div>
+<% end %>
