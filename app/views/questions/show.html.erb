@@ -20,8 +20,11 @@
     <div class="my-3">
       <p><%= a.body %></p>
       <%= link_to "Delete", question_answer_path(@question, a), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" }%>
+      <%= link_to "Edit", edit_question_answer_path(@question, a), class: "btn btn-warning btn-sm"%>
     </div>
     <% end %>
   <hr>
+<% else %>
+  <p>There is no answers</p>
 <% end %>
 <%= link_to "<i class='bi bi-arrow-left'></i> Back to Questions".html_safe, questions_path, class: "btn btn-primary" %>
