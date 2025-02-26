@@ -8,7 +8,7 @@
 <div class="card mb-4">
   <div class="card-body">
     <h5 class="card-title"><%= @question.title %></h5>
-    <p class="card-text"><%= @question.body %></p>
+    <p class="card-text"><%= sanitize @question.body %></p>
     <div class="d-flex">
       <%= link_to "<i class='bi bi-pencil'></i> Edit".html_safe, edit_question_path(@question), class: "btn btn-warning me-2" %>
       <%= link_to "<i class='bi bi-trash'></i> Delete".html_safe, question_path(@question), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
@@ -19,13 +19,8 @@
 <%= render "answers/form" %>
 <hr>
 <% if @answers.present? %>
-  <% @answers.each do |a| %>
-    <div class="my-3" id="answer_<%= a.id %>">
-      <p><%= a.body %></p>
-      <%= link_to "Delete", question_answer_path(@question, a), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" }%>
-      <%= link_to "Edit", edit_question_answer_path(@question, a), class: "btn btn-warning btn-sm"%>
-    </div>
-    <% end %>
+  <%#= render @answers %>
+  <%= render partial: "answers/answers", collection: @answers, as: :answer, locals: {question: @question }%>
   <hr>
 <% else %>
   <p>There is no answers</p>
