@@ -20,7 +20,7 @@
 <hr>
 <% if @answers.present? %>
   <% @answers.each do |a| %>
-    <div class="my-3">
+    <div class="my-3" id="answer_<%= a.id %>">
       <p><%= a.body %></p>
       <%= link_to "Delete", question_answer_path(@question, a), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" }%>
       <%= link_to "Edit", edit_question_answer_path(@question, a), class: "btn btn-warning btn-sm"%>

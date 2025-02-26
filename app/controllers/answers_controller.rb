@@ -26,7 +26,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.find(params[:id])
     if @answer.update(answer_params)
       flash[:success] = "Answer Updated!"
-      redirect_to question_path(@question)
+      redirect_to question_path(@question, anchor: "answer_#{@answer.id}")
     else
       render "questions/show"
     end
