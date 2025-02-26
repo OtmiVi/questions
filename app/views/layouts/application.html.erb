@@ -28,15 +28,9 @@
     <div class="container-fluid">
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <%= link_to "Home", root_path, class: "nav-link #{ 'active' if current_page? root_path}" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Questions", questions_path, class: "nav-link #{ 'active' if current_page? questions_path}" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Health", rails_health_check_path, class: "nav-link" %>
-          </li>
+          <%= nav_link "Home", root_path%>
+          <%= nav_link "Questions", questions_path%>
+          <%= nav_link "Health", rails_health_check_path%>
         </ul>
       </div>
     </div>
