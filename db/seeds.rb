@@ -7,3 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+30.times do
+  title = Faker::Hipster.sentence(word_count: 3)
+  body = Faker::Hipster.paragraph(sentence_count: 7, supplemental: true)
+  Question.create(title: title, body: body)
+end
