@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  include ActionView::RecordIdentifier
+
   before_action :set_question!, only: [ :create ]
   before_action :set_answer!, only: [ :destroy, :edit, :update ]
   def create
@@ -26,7 +28,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.find(params[:id])
     if @answer.update(answer_params)
       flash[:success] = "Answer Updated!"
-      redirect_to question_path(@question, anchor: "answer_#{@answer.id}")
+      redirect_to question_path(@question, anchor: dom_id(@answer))
     else
       render "questions/show"
     end

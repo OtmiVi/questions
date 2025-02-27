@@ -1,5 +1,5 @@
-<div class="my-3" id="answer_<%= answer.id %>">
+<%= tag.div class: "my-", id:  dom_id(answer) do %>
   <p><%= sanitize answer.body %></p>
   <%= link_to "Delete", question_answer_path(question, answer), class: "btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" }%>
   <%= link_to "Edit", edit_question_answer_path(question, answer), class: "btn btn-warning btn-sm"%>
-</div>
+<% end %>
